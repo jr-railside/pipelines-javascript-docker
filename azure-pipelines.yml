@@ -6,8 +6,12 @@
 trigger:
  - main
 
- pool:
-   vmImage: 'windows-latest' 
+pool:
+  vmImage: 'windows-latest' 
+  name: Default
+  demands:
+  - Agent.Name -equals JAYMILAPTOP
+
 
  variables:
    imageName: 'pipelines-javascript-docker'
