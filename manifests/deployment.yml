@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: jrrailsidepipelinesjavascriptdocker 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jrrailsidepipelinesjavascriptdocker
+  template:
+    metadata:
+      labels:
+        app: jrrailsidepipelinesjavascriptdocker 
+    spec:
+      containers:
+        - name: jrrailsidepipelinesjavascriptdocker 
+          image: mycontainerregistryjr.azurecr.io/jrrailsidepipelinesjavascriptdocker
+          ports:
+          - containerPort: 8080
