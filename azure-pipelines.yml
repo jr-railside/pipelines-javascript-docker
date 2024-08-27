@@ -5,6 +5,8 @@
 
 trigger:
  - main
+ - master
+ - feature/*
 
 pool:
   vmImage: 'windows-latest' 
@@ -13,13 +15,17 @@ pool:
   - Agent.Name -equals JAYMILAPTOP
 
 
- variables:
-   imageName: 'pipelines-javascript-docker'
+variables:
+  imageName: 'pipelines-javascript-docker'
+  DOCKER_BUILDKIT: 1
 
- steps:
+steps:
  - task: Docker@2
    displayName: Build an image
    inputs:
      repository: $(imageName)
      command: build
      Dockerfile: app/Dockerfile
+
+
+
